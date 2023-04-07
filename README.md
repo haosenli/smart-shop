@@ -1,2 +1,2 @@
 # smart-shop
-A smart shopping cart ecosystem
+A smart shopping cart ecosystem.
