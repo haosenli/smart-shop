@@ -1,0 +1,2 @@
+curl -fsSL https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py -o get-platformio.py
+		$(PYTHON) get-platformio.py
