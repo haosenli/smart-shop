@@ -1,6 +1,5 @@
-from flask import (
-    Flask,
-)
+from flask import Flask
+from flask_api import status
 
 # Flask app start up
 app: Flask = Flask(__name__)
@@ -10,7 +9,8 @@ app: Flask = Flask(__name__)
 @app.route("/", methods=["GET"])
 def home():
     """Returns home page"""
-    return "Hello world"
+
+    return "Hello world", 200
 
 
 if __name__ == "__main__":
