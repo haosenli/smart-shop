@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CSS from "csstype";
 import { QrReader } from "react-qr-reader";
 
 interface State {
@@ -17,10 +18,16 @@ function QrScanner({ setData }: State) {
                     console.info(error);
                 }
             }}
-            containerStyle={{ width: "100%", height: "100%" }}
+            containerStyle={videoStyle}
             constraints={{ facingMode: "environment" }}
         />
     );
 }
+
+const videoStyle: CSS.Properties = {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+};
 
 export default QrScanner;

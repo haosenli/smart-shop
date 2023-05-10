@@ -23,5 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Cache
+# python cache
+*__pycache__/
 .history/
