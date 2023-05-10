@@ -1,26 +1,25 @@
 import React, { useState } from "react";
 import { QrReader } from "react-qr-reader";
 
-function QrScanner() {
-    const [data, setData] = useState("No result");
+interface State {
+    setData: React.Dispatch<React.SetStateAction<string>>;
+}
 
+function QrScanner({ setData }: State) {
     return (
-        <>
-            <QrReader
-                onResult={(result, error) => {
-                    if (!!result) {
-                        setData(result.getText());
-                    }
+        <QrReader
+            onResult={(result, error) => {
+                if (!!result) {
+                    setData(result.getText());
+                }
 
-                    if (!!error) {
-                        console.info(error);
-                    }
-                }}
-                containerStyle={{ width: "100%" }}
-                constraints={{ facingMode: "environment" }}
-            />
-            <p>{data}</p>
-        </>
+                if (!!error) {
+                    console.info(error);
+                }
+            }}
+            containerStyle={{ width: "100%", height: "100%" }}
+            constraints={{ facingMode: "environment" }}
+        />
     );
 }
 
