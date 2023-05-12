@@ -1,17 +1,16 @@
 from flask import Flask
 from flask_api import status
 
+from cart import Cart
+
+CART: Cart = Cart()
+
 # Flask app start up
 app: Flask = Flask(__name__)
 
-
-# Routes
-@app.route("/", methods=["GET"])
-def home():
-    """Returns home page"""
-
-    return "Hello world", 200
-
+@app.route("/view-cart", methods=["GET"])
+def view_cart() -> dict:
+    return CART.view_cart(), status.HTTP_200_OK
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    app.run(debug=True, port=5000)
