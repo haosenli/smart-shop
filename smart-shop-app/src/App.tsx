@@ -1,32 +1,33 @@
-// import ListGroup from "./components/ListGroup";
-// import Alert from "./components/Alert";
-// import Button from "./components/Button";
-// import { useState } from "react";
-import Home from "./pages/home";
+import { useState } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import "./App.css";
+
+import Home from "./pages/Home";
+import LogIn from "./pages/LogIn";
 
 function App() {
-    // const [alertActive, setAlertActive] = useState(false);
+    const [url, setUrl] = useState("No result");
+    const navigate = useNavigate();
+    const navigateToHelp = () => {
+        navigate("/");
+    };
+    const navigateToSetting = () => {
+        navigate("/login");
+    };
 
     return (
-        <Home />
-        // <div>
-        //     {alertActive && (
-        //         <Alert
-        //             onClick={() => {
-        //                 setAlertActive(false);
-        //             }}
-        //         >
-        //             Hello World
-        //         </Alert>
-        //     )}
-        //     <Button
-        //         children="My Button"
-        //         color="primary"
-        //         onClick={() => {
-        //             setAlertActive(true);
-        //         }}
-        //     />
-        // </div>
+        <Routes>
+            <Route
+                path="/"
+                element={
+                    <Home
+                        setUrl={setUrl}
+                        navigateToSetting={navigateToSetting}
+                    />
+                }
+            />
+            <Route path="/login/" element={<LogIn />} />
+        </Routes>
     );
 }
 
