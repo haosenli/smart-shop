@@ -12,7 +12,7 @@ function Home({ setUrl, navigateToSetting }: Props) {
         <main style={homeStyle}>
             <h1 style={h1Style}>Please scan the shopping cart's QR code.</h1>
             <div style={scannerStyle}>
-                <QrScanner setUrl={setUrl} baseUrl="http://127.0.0.1:5000" />
+                <QrScanner setUrl={setUrl} baseUrl="http://localhost:5000" />
             </div>
             <nav style={navStyle}>
                 <ButtonLink
@@ -28,16 +28,14 @@ function Home({ setUrl, navigateToSetting }: Props) {
                     navigateTo={navigateToSetting}
                 />
             </nav>
-            <p>{url}</p>
         </main>
     );
 }
 
 const homeStyle: CSS.Properties = {
-    paddingTop: "10vh",
+    paddingTop: "5vh",
     paddingLeft: "7.5vw",
     paddingRight: "7.5vw",
-    minHeight: "90vh",
     background: "black",
     textAlign: "center",
     display: "flex",
@@ -48,7 +46,7 @@ const homeStyle: CSS.Properties = {
 const h1Style: CSS.Properties = {
     color: "white",
     margin: "0",
-    fontSize: "1.6rem",
+    fontSize: "1.5rem",
 };
 
 const scannerStyle: CSS.Properties = {
