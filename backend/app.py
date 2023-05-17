@@ -2,11 +2,13 @@ from flask import Flask
 from flask_api import status
 
 from cart import Cart
-from rfid_reader import run_program
+from rfid_reader import (
+    run_program,
+    CART,
+)
 
 
 run_program()
-CART: Cart = Cart()
 
 # Flask app start up
 app: Flask = Flask(__name__)

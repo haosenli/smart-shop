@@ -23,8 +23,8 @@ class Cart:
 
         # if item is inside of cart
         if item_id in self.cart_content:
-            self.cart_content[item_id]["qty"] -= 1
             # remove qty of item by 1
+            self.cart_content[item_id]["qty"] -= 1
 
     def view_cart(self) -> dict:
         return self.cart_content

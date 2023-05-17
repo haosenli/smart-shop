@@ -18,6 +18,14 @@ CART = Cart()
 # global variable to indicate whether process_item_id should continue running
 continue_processing = True
 
+# TODO: Make this global instead
+try:
+    with open("items.json", "r") as f:
+        ITEMS = json.load(f)
+except FileNotFoundError:
+    ITEMS = {}
+    print("DUDE THE ITEM DATABASE IS EMPTY")
+
 
 def read_from_esp_board(q):
     global continue_processing
@@ -52,14 +60,9 @@ def process_item_id(q, mode="X"):
             item_id = q.get()
             # Customer mode
             if mode == "X":
-                # TODO: Make this global instead
-                with open("items.json", "r") as f:
-                    info = json.load(f)
                 # use the read item_id to check if is in the json keys
-                if item_id in info:
-                    print(f"Tag {item_id} is {info[item_id]}")
-
-                CART.add_item(item_id, image_url, item_name, price)
+                if item_id in ITEMS:
+                    CART.add_item(item_id, image_url, item_name, price)
             # Retailer mode
             elif mode == "Y":
                 item_name = input("Enter the item name: ")
