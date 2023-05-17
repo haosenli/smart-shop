@@ -1,5 +1,5 @@
 class Cart:
-    def init(self) -> None:
+    def __init__(self) -> None:
         self.cart_content: dict = {}
         self.valid_employees: set = set()
 
