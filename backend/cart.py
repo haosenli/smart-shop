@@ -1,6 +1,5 @@
 class Cart:
     def __init__(self) -> None:
-        self.total: float = 0
         self.cart_content: dict = {}
         self.valid_employees: set = set()
 
@@ -17,9 +16,6 @@ class Cart:
         # Increment qty of item
         self.cart_content[item_id]["qty"] += 1
 
-        # Add price
-        self.total += self.cart_content[item_id]["price"]
-
     def remove_item(self, item_id: str, employee_id: str) -> None:
         # check if item_id exist in cart
         if employee_id not in self.valid_employees:
@@ -29,9 +25,6 @@ class Cart:
         if item_id in self.cart_content:
             # remove qty of item by 1
             self.cart_content[item_id]["qty"] -= 1
-
-            # Remove from total
-            self.total -= self.cart_content[item_id]["price"]
 
     def view_cart(self) -> dict:
         return self.cart_content
