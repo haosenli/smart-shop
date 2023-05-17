@@ -2,8 +2,7 @@ import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 
-import Home from "./pages/home";
-import LogIn from "./pages/LogIn";
+import Home from "./pages/Home";
 
 function App() {
     const [url, setUrl] = useState("No result");
@@ -12,7 +11,7 @@ function App() {
         navigate("/");
     };
     const navigateToSetting = () => {
-        navigate("/login");
+        navigate("/");
     };
 
     return (
@@ -26,7 +25,6 @@ function App() {
                     />
                 }
             />
-            <Route path="/login/" element={<LogIn />} />
         </Routes>
     );
 }

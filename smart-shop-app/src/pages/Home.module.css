@@ -1,0 +1,25 @@
+.home {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.1rem;
+}
+
+.header {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.scannerContainer {
+    border-radius: 1rem;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}

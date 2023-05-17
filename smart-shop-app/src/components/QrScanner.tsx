@@ -31,7 +31,7 @@ function QrScanner({ setUrl, baseUrl }: State) {
 const videoStyle: CSS.Properties = {
     width: "100%",
     height: "100%",
-    transform: "scale(1.35)",
+    transform: "scale(1.4)",
     objectFit: "cover",
 };
 

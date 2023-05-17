@@ -1,4 +1,4 @@
-import CSS from "csstype";
+import styles from "./Home.module.css";
 import QrScanner from "../components/QrScanner";
 import ButtonLink from "../components/ButtonLink";
 
@@ -9,12 +9,15 @@ interface Props {
 
 function Home({ setUrl, navigateToSetting }: Props) {
     return (
-        <main style={homeStyle}>
-            <h1 style={h1Style}>Please scan the shopping cart's QR code.</h1>
-            <div style={scannerStyle}>
+        <main className={styles.home}>
+            <h1 className={styles.header}>
+                Please scan the shopping cart's QR code.
+            </h1>
+            <div className={styles.scannerContainer}>
+                {/* Replace this with Raspberry Pi's address */}
                 <QrScanner setUrl={setUrl} baseUrl="http://localhost:5000" />
             </div>
-            <nav style={navStyle}>
+            <nav className={styles.navContainer}>
                 <ButtonLink
                     buttonText="Ask for Help"
                     backgroundColor="white"
@@ -31,35 +34,5 @@ function Home({ setUrl, navigateToSetting }: Props) {
         </main>
     );
 }
-
-const homeStyle: CSS.Properties = {
-    paddingTop: "5vh",
-    paddingLeft: "7.5vw",
-    paddingRight: "7.5vw",
-    background: "black",
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    gap: "2.1rem",
-};
-
-const h1Style: CSS.Properties = {
-    color: "white",
-    margin: "0",
-    fontSize: "1.5rem",
-};
-
-const scannerStyle: CSS.Properties = {
-    borderRadius: "1rem",
-    maxWidth: "100%",
-    aspectRatio: "1/1",
-    overflow: "hidden",
-};
-
-const navStyle: CSS.Properties = {
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.5rem",
-};
 
 export default Home;
