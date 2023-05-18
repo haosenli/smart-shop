@@ -11,3 +11,5 @@ function CartTotal({ currentItems, currentPrice }: Props) {
         </div>
     );
 }
+
+export default CartTotal;
