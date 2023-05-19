@@ -7,6 +7,7 @@ import CartItems from "../components/CartItems";
 
 interface Props {
     cartUrl: string;
+    navigateToHome: () => void;
 }
 
 interface Item {
@@ -15,7 +16,7 @@ interface Item {
     price: string;
 }
 
-function ShoppingCart({ cartUrl }: Props) {
+function ShoppingCart({ cartUrl, navigateToHome }: Props) {
     const [currentItems, setItems] = useState(0);
     const [currentPrice, setPrice] = useState(0.0);
     const [itemsList, setItemsList] = useState<Item[]>([]);

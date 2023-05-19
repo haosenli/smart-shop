@@ -3,11 +3,20 @@ import QrScanner from "../components/QrScanner";
 import ButtonLink from "../components/ButtonLink";
 
 interface Props {
+    url: string;
     setUrl: React.Dispatch<React.SetStateAction<string>>;
+    navigateToShoppingCart: () => void;
+    navigateToHelp: () => void;
     navigateToSetting: () => void;
 }
 
-function Home({ setUrl, navigateToSetting }: Props) {
+function Home({
+    url,
+    setUrl,
+    navigateToShoppingCart,
+    navigateToHelp,
+    navigateToSetting,
+}: Props) {
     return (
         <main className={styles.home}>
             <h1 className={styles.header}>
@@ -15,14 +24,22 @@ function Home({ setUrl, navigateToSetting }: Props) {
             </h1>
             <div className={styles.scannerContainer}>
                 {/* Replace this with Raspberry Pi's address */}
-                <QrScanner setUrl={setUrl} baseUrl="http://localhost:5000" />
+                {url ? (
+                    <></>
+                ) : (
+                    <QrScanner
+                        setUrl={setUrl}
+                        navigateToShoppingCart={navigateToShoppingCart}
+                        baseUrl="localhost:5000"
+                    />
+                )}
             </div>
             <nav className={styles.navContainer}>
                 <ButtonLink
                     buttonText="Ask for Help"
                     backgroundColor="white"
                     textColor="black"
-                    navigateTo={navigateToSetting}
+                    navigateTo={navigateToHelp}
                 />
                 <ButtonLink
                     buttonText="Settings"
