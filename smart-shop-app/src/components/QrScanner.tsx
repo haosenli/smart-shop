@@ -9,18 +9,13 @@ interface State {
 }
 
 function QrScanner({ setUrl, navigateToShoppingCart, baseUrl }: State) {
-    const ref = useRef(null);
-
     const closeCam = async () => {
         const stream = await navigator.mediaDevices.getUserMedia({
             audio: false,
             video: true,
         });
-        stream.getTracks().forEach(function (track) {
-            track.stop();
-            track.enabled = false;
-        });
-        ref.current.stopCamera();
+        // the rest of the cleanup code
+        window.location.reload();
     };
 
     return (
@@ -30,6 +25,7 @@ function QrScanner({ setUrl, navigateToShoppingCart, baseUrl }: State) {
                     let qrResult: string = result.getText();
                     if (qrResult.includes(baseUrl)) {
                         setUrl(result.getText());
+                        closeCam();
                         navigateToShoppingCart();
                     }
                 }

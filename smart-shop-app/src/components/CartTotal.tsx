@@ -1,3 +1,5 @@
+import styles from "./CartTotal.module.css";
+
 interface Props {
     currentItems: number;
     currentPrice: number;
@@ -5,9 +7,9 @@ interface Props {
 
 function CartTotal({ currentItems, currentPrice }: Props) {
     return (
-        <div>
-            <span>Current Items: {currentItems}</span>
-            <span>Price: ${currentPrice}</span>
+        <div className={styles.cartTotal}>
+            <div>Current Items: {currentItems}</div>
+            <div>Price: ${currentPrice}</div>
         </div>
     );
 }

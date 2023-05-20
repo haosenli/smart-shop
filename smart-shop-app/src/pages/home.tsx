@@ -37,14 +37,14 @@ function Home({
             <nav className={styles.navContainer}>
                 <ButtonLink
                     buttonText="Ask for Help"
-                    backgroundColor="white"
-                    textColor="black"
+                    backgroundColor="green"
+                    textColor="white"
                     navigateTo={navigateToHelp}
                 />
                 <ButtonLink
                     buttonText="Settings"
-                    backgroundColor="white"
-                    textColor="black"
+                    backgroundColor="red"
+                    textColor="white"
                     navigateTo={navigateToSetting}
                 />
             </nav>
