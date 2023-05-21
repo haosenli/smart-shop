@@ -1,9 +1,12 @@
 .cartItem {
     display: grid;
-    grid-template-areas: "image name price qty";
-    grid-template-columns: 1fr 2fr 1fr 0.6fr;
-    gap: 0.5rem;
+    grid-template-areas: "image name price";
+    grid-template-columns: 5rem 2fr 1fr;
+    height: 5rem;
+    gap: 1rem;
     align-items: center;
+    margin-bottom: 0.5rem;
+    overflow: hidden;
 }
 
 .imageUrl {

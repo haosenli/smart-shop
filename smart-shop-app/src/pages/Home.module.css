@@ -12,9 +12,12 @@
 
 .scannerContainer {
     border-radius: 1rem;
+    -webkit-border-radius: 1rem;
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
+    z-index: 0;
+    transform: translateY(0);
 }
 
 .navContainer {

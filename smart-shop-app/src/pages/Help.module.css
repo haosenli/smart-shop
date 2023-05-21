@@ -1,0 +1,19 @@
+.help {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2.1rem;
+    width: 85vw;
+}
+
+.navContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.header {
+    margin: 0;
+    /* margin-bottom: 1rem; */
+    text-align: center;
+}

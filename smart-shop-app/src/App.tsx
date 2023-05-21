@@ -4,6 +4,8 @@ import "./App.css";
 
 import Home from "./pages/Home";
 import ShoppingCart from "./pages/ShoppingCart";
+import Checkout from "./pages/Checkout";
+import Help from "./pages/Help";
 
 function App() {
     // Page navigation
@@ -14,11 +16,14 @@ function App() {
     const navigateToShoppingCart = () => {
         navigate("/cart");
     };
-    const navigateToHelp = () => {
-        navigate("/");
+    const navigateToHelpHome = () => {
+        navigate("/help-home");
     };
-    const navigateToSetting = () => {
-        navigate("/");
+    const navigateToHelpCart = () => {
+        navigate("/help-cart");
+    };
+    const navigateToCheckout = () => {
+        navigate("/checkout");
     };
 
     // React hooks
@@ -33,8 +38,7 @@ function App() {
                         url={url}
                         setUrl={setUrl}
                         navigateToShoppingCart={navigateToShoppingCart}
-                        navigateToHelp={navigateToHelp}
-                        navigateToSetting={navigateToSetting}
+                        navigateToHelp={navigateToHelpHome}
                     />
                 }
             />
@@ -44,8 +48,22 @@ function App() {
                     <ShoppingCart
                         cartUrl={url}
                         navigateToHome={navigateToHome}
+                        navigateToHelp={navigateToHelpCart}
+                        navigateToCheckout={navigateToCheckout}
                     />
                 }
+            />
+            <Route
+                path="/checkout"
+                element={<Checkout navigateToHome={navigateToHome} />}
+            />
+            <Route
+                path="/help-home"
+                element={<Help navigateBack={navigateToHome} />}
+            />
+            <Route
+                path="/help-cart"
+                element={<Help navigateBack={navigateToShoppingCart} />}
             />
         </Routes>
     );

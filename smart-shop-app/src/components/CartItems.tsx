@@ -6,7 +6,6 @@ interface Item {
     imageUrl: string;
     itemName: string;
     price: number;
-    qty: number;
 }
 
 interface Props {
@@ -19,11 +18,9 @@ function CartItems({ itemsList }: Props) {
             {itemsList.map((item) => (
                 <CartItem
                     key={item.id}
-                    id={item.id}
                     imageUrl={item.imageUrl}
                     itemName={item.itemName}
                     price={item.price}
-                    qty={item.qty}
                 />
             ))}
         </div>

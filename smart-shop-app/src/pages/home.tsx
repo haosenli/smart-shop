@@ -7,16 +7,9 @@ interface Props {
     setUrl: React.Dispatch<React.SetStateAction<string>>;
     navigateToShoppingCart: () => void;
     navigateToHelp: () => void;
-    navigateToSetting: () => void;
 }
 
-function Home({
-    url,
-    setUrl,
-    navigateToShoppingCart,
-    navigateToHelp,
-    navigateToSetting,
-}: Props) {
+function Home({ url, setUrl, navigateToShoppingCart, navigateToHelp }: Props) {
     return (
         <main className={styles.home}>
             <h1 className={styles.header}>
@@ -37,15 +30,11 @@ function Home({
             <nav className={styles.navContainer}>
                 <ButtonLink
                     buttonText="Ask for Help"
-                    backgroundColor="green"
+                    backgroundColor="#6656e2"
                     textColor="white"
+                    textSize="1.3rem"
+                    padding="0.5rem"
                     navigateTo={navigateToHelp}
-                />
-                <ButtonLink
-                    buttonText="Settings"
-                    backgroundColor="red"
-                    textColor="white"
-                    navigateTo={navigateToSetting}
                 />
             </nav>
         </main>

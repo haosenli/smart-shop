@@ -1,6 +1,8 @@
 .cartItems {
-    height: 50vh;
+    height: 48vh;
     overflow-x: hidden;
     overflow-y: auto;
     padding-right: 1rem;
+    border-radius: 1rem;
+    /* margin-bottom: 1.33rem; */
 }
