@@ -70,7 +70,6 @@ def read():
                     item["item_id"], item["image_url"], item["item_name"], item["price"]
                 )
                 save_cart(cart)
-                print("READ", cart.view_cart())
         except (KeyboardInterrupt, SystemExit) as e:
             controller.close()
             print(e.__class__.__name__)
