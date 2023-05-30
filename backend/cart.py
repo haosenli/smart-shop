@@ -25,6 +25,8 @@ class Cart:
         if item_id in self.cart_content:
             # remove qty of item by 1
             self.cart_content[item_id]["qty"] -= 1
+            if not self.cart_content[item_id]["qty"]:
+                self.cart_content.pop(item_id)
 
     def view_cart(self) -> dict:
         return self.cart_content
