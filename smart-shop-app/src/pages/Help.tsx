@@ -4,10 +4,11 @@ import ButtonLink from "../components/ButtonLink";
 import NavIcon from "../components/NavIcon";
 
 interface Props {
+    cartUrl: string;
     navigateBack: () => void;
 }
 
-function Help({ navigateBack }: Props) {
+function Help({ cartUrl, navigateBack }: Props) {
     return (
         <main className={styles.help}>
             <h1 className={styles.header}>Contact for Help</h1>
@@ -19,9 +20,9 @@ function Help({ navigateBack }: Props) {
                     textColor="white"
                     textSize="1.25rem"
                     padding="0.75rem"
-                    navigateTo={() => {
+                    navigateTo={async () => {
                         // send request to backend
-                        return;
+                        await fetch(`${cartUrl}/admin-cart`);
                     }}
                 />
                 <ButtonLink
@@ -30,8 +31,9 @@ function Help({ navigateBack }: Props) {
                     textColor="white"
                     textSize="1.25rem"
                     padding="0.75rem"
-                    navigateTo={() => {
-                        return;
+                    navigateTo={async () => {
+                        // send request to backend
+                        await fetch(`${cartUrl}/admin-app`);
                     }}
                 />
                 <ButtonLink
@@ -40,8 +42,9 @@ function Help({ navigateBack }: Props) {
                     textColor="white"
                     textSize="1.25rem"
                     padding="0.75rem"
-                    navigateTo={() => {
-                        return;
+                    navigateTo={async () => {
+                        // send request to backend
+                        await fetch(`${cartUrl}/admin-payment`);
                     }}
                 />
             </nav>

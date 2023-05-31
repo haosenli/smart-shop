@@ -2,9 +2,8 @@ import styles from "./CartItems.module.css";
 import CartItem from "./CartItem";
 
 interface Item {
-    id: string;
-    imageUrl: string;
-    itemName: string;
+    image_url: string;
+    item: string;
     price: number;
 }
 
@@ -15,11 +14,11 @@ interface Props {
 function CartItems({ itemsList }: Props) {
     return (
         <div className={styles.cartItems}>
-            {itemsList.map((item) => (
+            {itemsList.map((item, index) => (
                 <CartItem
-                    key={item.id}
-                    imageUrl={item.imageUrl}
-                    itemName={item.itemName}
+                    key={index}
+                    image_url={item.image_url}
+                    item={item.item}
                     price={item.price}
                 />
             ))}

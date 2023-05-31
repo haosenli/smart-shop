@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.css";
 
-import Home from "./pages/Home";
+import Home from "./pages/home";
 import ShoppingCart from "./pages/ShoppingCart";
 import Checkout from "./pages/Checkout";
 import Help from "./pages/Help";
@@ -11,10 +11,10 @@ function App() {
     // Page navigation
     const navigate = useNavigate();
     const navigateToHome = () => {
-        navigate("/");
+        navigate("/home");
     };
     const navigateToShoppingCart = () => {
-        navigate("/cart");
+        navigate("/");
     };
     const navigateToHelpHome = () => {
         navigate("/help-home");
@@ -27,12 +27,12 @@ function App() {
     };
 
     // React hooks
-    const [url, setUrl] = useState("");
+    const [url, setUrl] = useState("http://10.19.89.248:5000");
 
     return (
         <Routes>
             <Route
-                path="/"
+                path="/home"
                 element={
                     <Home
                         url={url}
@@ -43,11 +43,10 @@ function App() {
                 }
             />
             <Route
-                path="/cart"
+                path="/"
                 element={
                     <ShoppingCart
                         cartUrl={url}
-                        navigateToHome={navigateToHome}
                         navigateToHelp={navigateToHelpCart}
                         navigateToCheckout={navigateToCheckout}
                     />
@@ -55,15 +54,17 @@ function App() {
             />
             <Route
                 path="/checkout"
-                element={<Checkout navigateToHome={navigateToHome} />}
+                element={<Checkout navigateToHome={navigateToShoppingCart} />}
             />
             <Route
                 path="/help-home"
-                element={<Help navigateBack={navigateToHome} />}
+                element={<Help cartUrl={url} navigateBack={navigateToHome} />}
             />
             <Route
                 path="/help-cart"
-                element={<Help navigateBack={navigateToShoppingCart} />}
+                element={
+                    <Help cartUrl={url} navigateBack={navigateToShoppingCart} />
+                }
             />
         </Routes>
     );

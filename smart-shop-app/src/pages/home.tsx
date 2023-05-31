@@ -17,15 +17,11 @@ function Home({ url, setUrl, navigateToShoppingCart, navigateToHelp }: Props) {
             </h1>
             <div className={styles.scannerContainer}>
                 {/* Replace this with Raspberry Pi's address */}
-                {url ? (
-                    <></>
-                ) : (
-                    <QrScanner
-                        setUrl={setUrl}
-                        navigateToShoppingCart={navigateToShoppingCart}
-                        baseUrl="localhost:5000"
-                    />
-                )}
+                <QrScanner
+                    setUrl={setUrl}
+                    navigateToShoppingCart={navigateToShoppingCart}
+                    baseUrl=":"
+                />
             </div>
             <nav className={styles.navContainer}>
                 <ButtonLink
