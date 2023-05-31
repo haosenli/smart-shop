@@ -24,10 +24,14 @@ REMOVE_FROM_CART = False
 app = Flask(__name__)
 
 
-def get_cart():
+def get_cart(clear=False):
     try:
-        with open("cart.pkl", "rb") as f:
-            cart = pickle.load(f)
+        if clear:
+            cart = Cart()
+            save_cart(cart)
+        else:
+            with open("cart.pkl", "rb") as f:
+                cart = pickle.load(f)
     except FileNotFoundError:
         cart = Cart()
         save_cart(cart)
@@ -56,6 +60,9 @@ def read():
     controller = serial.Serial(
         port, baudrate=baud
     )  # TODO: sometimes serial port is in use, make it promt user when it happens
+
+    # reset cart
+    get_cart(clear=True)
 
     while controller.isOpen():
         try:

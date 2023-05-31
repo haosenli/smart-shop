@@ -1,0 +1,20 @@
+{
+    "1": {
+        "item_id": "1",
+        "image_url": "https://moodle.com/wp-content/uploads/2021/06/22087-11.jpg",
+        "item_name": "Black T-Shirt",
+        "price": 29.99
+    },
+    "2": {
+        "item_id": "2",
+        "image_url": "https://assets.burberry.com/is/image/Burberryltd/46195D47-1EB6-4BB8-8129-AAA2894761FD?$BBY_V2_SL_1x1$&wid=2500&hei=2500",
+        "item_name": "White T-Shirt",
+        "price": 49.99
+    },
+    "3": {
+        "item_id": "3",
+        "image_url": "https://lsco.scene7.com/is/image/lsco/563270086-alt1-pdp-lse?$laydownfront$",
+        "item_name": "Denim Shorts",
+        "price": 39.99
+    }
+}
